@@ -126,7 +126,7 @@
                         </div>
                         <div class="ceremonydetails">
                             <div><i style="font-size:24px;color:white;" class="fa">&#xf041;</i></div>
-                            <div class="lora24b">Saint Maroun Church</div>
+                            <div class="lora24b">Saint Maroun Church<br>Tal Znoub</div>
                             <div class="lovebutton">
                                 <a href="https://maps.app.goo.gl/MEU7zdzqnkw2m3Kf7" target="_blank" rel="noopener noreferrer">Church Location</a></div>
                             </div>
@@ -243,6 +243,7 @@
         const attendees = params.get('att'); // Example: 3
         const fn = params.get('fn');
         const ln = params.get('ln');
+        const sp = params.get('sp');
 
         console.log('attendees',attendees);
         // Get the select element and hidden input element
@@ -273,7 +274,11 @@
             if(attendees > 2){
             document.getElementById('attname').innerHTML = `<p>Dear ${fn} ${ln} and Family</p>`;
             }else if(attendees == 2) {
+                if(sp === 'true') {
+                document.getElementById('attname').innerHTML = `<p>Dear Mr ${fn} & Ms ${ln}</p>`;
+                }else {
                 document.getElementById('attname').innerHTML = `<p>Dear Mr & Mrs ${ln}</p>`;
+                }
             }
             else if(attendees == 1) {
                 document.getElementById('attname').innerHTML = `<p>Dear ${fn} ${ln}</p>`;
